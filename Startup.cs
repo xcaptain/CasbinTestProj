@@ -13,7 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using NetCasbin;
 using NetCasbin.Persist;
-
+using Casbin.NET.Adapter.EFCore;
 
 namespace CasbinTestProj
 {
