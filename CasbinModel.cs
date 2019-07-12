@@ -3,13 +3,18 @@ using System.Collections.Generic;
 
 namespace CasbinTestProj
 {
-    public class TestDbContext : DbContext
+    public class CasbinDbContext : DbContext
     {
         public DbSet<CasbinRule> CasbinRule { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+
+        public CasbinDbContext()
         {
-            optionsBuilder.UseSqlite("Data Source=casbin_test.sqlite3");
         }
+
+        public CasbinDbContext(DbContextOptions<CasbinDbContext> options) : base(options)
+        {
+        }
+
     }
 
     public class CasbinRule

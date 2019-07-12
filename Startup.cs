@@ -6,10 +6,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using NetCasbin;
+using NetCasbin.Persist;
+
 
 namespace CasbinTestProj
 {
@@ -25,6 +29,11 @@ namespace CasbinTestProj
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // NOTE: add this 3 lines to your own project
+            services.AddDbContext<CasbinDbContext>(opt => opt.UseSqlite("Data Source=casbin_test.sqlite3"));
+            services.AddScoped<IAdapter>(x => new CasbinDbAdapter (x.GetRequiredService<CasbinDbContext>()));
+            services.AddScoped<Enforcer>(x => new Enforcer ("./auth_model.conf",  x.GetRequiredService<IAdapter>()));
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 

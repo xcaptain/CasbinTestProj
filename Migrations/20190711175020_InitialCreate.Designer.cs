@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CasbinTestProj.Migrations
 {
-    [DbContext(typeof(TestDbContext))]
+    [DbContext(typeof(CasbinDbContext))]
     [Migration("20190711175020_InitialCreate")]
     partial class InitialCreate
     {

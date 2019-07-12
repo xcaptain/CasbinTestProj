@@ -1,10 +1,27 @@
-# test casbin
+# test casbin efcore adapter
 
-```shell
-dotnet ef migrations add InitialCreate
-dotnet ef database update
+## how to test
 
-sqlite3 casbin_test.sqlite3
-.tables
-```
+1. git clone this project
+2. do migration
+
+    ```shell
+    dotnet ef database update
+    ```
+
+    this operation will create a sqlite file named `casbin_test.sqlite3` in the current folder, you can use sqlite to inspect the database.
+
+3. seeding the `CasbinRule` table
+
+    ```sql
+    insert into CasbinRule (Ptype, V0, V1) values ('g', 'user_1', 'admin');
+    ```
+
+4. run the sample web api
+
+    ```shell
+    dotnet run
+    ```
+
+    and then go to `https://localhost:5001/api/values`, it should return the role list of user `user_1`
 

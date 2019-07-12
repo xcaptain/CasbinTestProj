@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using NetCasbin;
 
 namespace CasbinTestProj.Controllers
 {
@@ -10,11 +11,18 @@ namespace CasbinTestProj.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly Enforcer _enforcer;
+
+        public ValuesController(Enforcer enforcer)
+        {
+            _enforcer = enforcer;
+        }
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            return new string[] { "value1", "value2" };
+            var a = _enforcer.GetRolesForUser("user_1");
+            return a;
         }
 
         // GET api/values/5

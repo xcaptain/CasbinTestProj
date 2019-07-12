@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CasbinTestProj.Migrations
 {
-    [DbContext(typeof(TestDbContext))]
+    [DbContext(typeof(CasbinDbContext))]
     partial class TestDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
