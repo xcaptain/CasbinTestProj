@@ -25,3 +25,7 @@
 
     and then go to `https://localhost:5001/api/values`, it should return the role list of user `user_1`
 
+## changelog
+
+1. add support for custom casbin models, the `casbin_test.sqlite3` database now contains 2 tables
+2. copy `auth_model.conf` to publish folder when running `dotnet publish`

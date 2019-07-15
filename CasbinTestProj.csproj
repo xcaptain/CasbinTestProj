@@ -3,16 +3,19 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
-    <RestoreSources>$(RestoreSources);~/github/EFCore-Adapter/bin/Debug/</RestoreSources>
+    <RestoreSources>$(RestoreSources);/home/joey/github/EFCore-Adapter/bin/Debug/</RestoreSources>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Casbin.NET" Version="1.1.1" />
-    <PackageReference Include="Casbin.NET.Adapter.EFCore" Version="1.0.1" />
+    <PackageReference Include="Casbin.NET.Adapter.EFCore" Version="1.0.2" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.6" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.6" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="auth_model.conf" CopyToPublishDirectory="Always" />
   </ItemGroup>
 
 </Project>

@@ -30,6 +30,7 @@ namespace CasbinTestProj
         public void ConfigureServices(IServiceCollection services)
         {
             // NOTE: add this 3 lines to your own project
+            // services.AddScoped<IEntityTypeConfiguration<CasbinRule>, CustomCasbinRuleTableConfiguration>();
             services.AddDbContext<CasbinDbContext>(opt => opt.UseSqlite("Data Source=casbin_test.sqlite3"));
             services.AddScoped<IAdapter>(x => new CasbinDbAdapter (x.GetRequiredService<CasbinDbContext>()));
             services.AddScoped<Enforcer>(x => new Enforcer ("./auth_model.conf",  x.GetRequiredService<IAdapter>()));
