@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NetCasbin;
 
 namespace CasbinTestProj.Controllers
 {
     [Route("api/[controller]")]
+    // if you want authorization and authentication, uncomment below
+    // [Authorize(AuthenticationSchemes = "AdminAuthScheme", Policy = "CasbinCheckPerm")]
     [ApiController]
     public class ValuesController : ControllerBase
     {
