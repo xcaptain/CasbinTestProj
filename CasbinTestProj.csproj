@@ -3,7 +3,6 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
-    <RestoreSources>$(RestoreSources);/home/joey/github/EFCore-Adapter/bin/Debug/</RestoreSources>
   </PropertyGroup>
 
   <ItemGroup>

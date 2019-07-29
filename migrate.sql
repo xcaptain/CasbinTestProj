@@ -2,7 +2,6 @@ insert into CasbinRule (Ptype, V0, V1) values ('g', 'user_1', 'admin');
 insert into CasbinRule (Ptype, V0, V1) values ('g', 'user_1', 'user');
 
 create table casbin_rules (
-    id integer primary key autoincrement,
     p_type varchar(100),
     v0 varchar(100),
     v1 varchar(100),
